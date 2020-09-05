@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="keydb",
-    version="0.0.1",
+    version="0.1",
     author="Example Author",
     author_email="kimnt93@gmail.com",
     description="A Python client for KeyDB",

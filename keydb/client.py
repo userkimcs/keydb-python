@@ -1,4 +1,5 @@
 from redis import *
+from redis.client import list_or_args
 
 
 class KeyDB(StrictRedis):
@@ -35,3 +36,14 @@ class KeyDB(StrictRedis):
         :return:
         """
         return self.execute_command('EXPIREMEMBERAT', key, subkey, timestamp)
+
+    def bitops(self, key, *args):
+        """
+        Return the position of the first bit set to 1 or 0 in a string
+        https://docs.keydb.dev/docs/commands/#bitpos
+        :param key:
+        :param args:
+        :return:
+        """
+        return self.execute_command("BITOPS", list_or_args(key, args))
+
